@@ -21,26 +21,26 @@ module.exports = {
     ci: true,
 
     git: {
+        requireCleanWorkingDir: true,
+        requireUpstream: false,
+        requireBranch: false,
+        commit: true,
+        commitMessage: "chore(release): v${version}",
+        tag: true,
         tagName: "v${version}",
         tagAnnotation: "v${version}",
-        requireUpstream: false,
         push: true,
-        commitMessage: "chore(release): v${version}",
-        commitArgs: "--no-verify",
     },
 
     github: {
         release: true,
         releaseName: "v${version}",
-        tokenRef: "GITHUB_TOKEN",
-        autoGenerate: false,
     },
 
     npm: {
         publish: true,
         versionArgs: ["--no-git-tag-version"],
         publishArgs: ["--provenance", "--access", "public"],
-        tokenRef: "NPM_TOKEN",
     },
 
     increment: "conventional",
@@ -48,13 +48,11 @@ module.exports = {
     plugins: {
         "@release-it/conventional-changelog": {
             infile: "CHANGELOG.md",
-            header: "# Changelog\n",
-            preset: {
-                name: "conventionalcommits",
-            },
+            preset: "conventionalcommits",
+
             presetConfig: {
                 types: [...types.entries()]
-                    .map(([type, section]) => ({type, section})),
+                    .map(([type, section]) => ({type, section, hidden: false})),
             },
 
             context: {
