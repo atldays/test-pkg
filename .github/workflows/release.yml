@@ -48,3 +48,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Sync main → develop
+        uses: devmasx/merge-branch@v1.4.0
+        with:
+          type: now
+          from_branch: main
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          HUSKY: 0
