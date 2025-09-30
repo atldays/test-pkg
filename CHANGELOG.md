@@ -1,5 +1,16 @@
 # Changelog
 
+
+* Merge pull request #7 from atldays/develop (94edab2)
+* ci: add branch sync step to release workflow (9c2cd04)
+
+* Merge pull request #6 from atldays/develop (f52bd51)
+* Merge pull request #5 from atldays/develop (b351401)
+* Merge pull request #4 from atldays/develop (2f83652)
+* Merge pull request #3 from atldays/develop (7abd634)
+* Merge pull request #2 from atldays/develop (0e9d195)
+* Merge pull request #1 from atldays/release/next (3d32fff)
+
 All notable changes to this project will be documented in this file. The format is based on Conventional Commits.
 
 This file is maintained automatically by release-it and @release-it/conventional-changelog.
