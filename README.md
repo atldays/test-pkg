@@ -37,8 +37,8 @@ console.log(add(2, 3)); // 5
 ## Development
 
 - Source: TypeScript in `src/`
-- Build: `npm run build` → outputs CommonJS + `.d.ts` to `dist/`
-- Tests: Jest + ts-jest
+- Build: `npm run build` (tsup) → outputs ESM (`dist/index.mjs`) + CommonJS (`dist/index.cjs`) and types (`dist/index.d.ts`).
+- Tests: Jest
 
 ## Scripts
 
@@ -47,7 +47,7 @@ console.log(add(2, 3)); // 5
 - `npm run lint` — Lint using Biome.
 - `npm run format` — Format files in-place using Biome.
 - `npm run format:check` — Check formatting without writing.
-- `npm run build` — Compile TypeScript to `dist/`.
+- `npm run build` — Build with tsup (ESM + CJS + d.ts) to `dist/`.
 - `npm run prepublishOnly` — Validate (lint, format check, tests) and then build before publishing.
 
 ## License
