@@ -7,6 +7,8 @@ module.exports = {
         tagAnnotation: "Release v${version}",
         requireUpstream: false,
         push: true,
+        commitMessage: "chore(release): v${version}",
+        commitArgs: "--no-verify",
     },
 
     github: {
