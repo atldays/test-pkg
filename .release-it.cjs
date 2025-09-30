@@ -15,6 +15,7 @@ module.exports = {
         release: true,
         releaseName: "v${version}",
         tokenRef: "GITHUB_TOKEN",
+        autoGenerate: false,
     },
 
     npm: {
@@ -39,14 +40,17 @@ module.exports = {
                     {type: "fix", section: "🐛 Bug Fixed"},
                     {type: "perf", section: "⚡️ Performance Improvements"},
                     {type: "refactor", section: "🛠️ Refactoring"},
-                    {type: "docs", section: "📝 Documentation", hidden: true},
-                    {type: "test", section: "Tests", hidden: true},
-                    {type: "build", section: "🏗️ Build System", hidden: true},
+                    {type: "docs", section: "📝 Documentation"},
+                    {type: "test", section: "🧪 Tests"},
+                    {type: "build", section: "🏗️ Build System"},
                     {type: "ci", section: "🤖 CI"},
-                    {type: "chore", section: "🧹 Chores", hidden: true},
+                    {type: "chore", section: "🧹 Chores"},
                     {type: "revert", section: "⏪ Reverts"},
+                    {type: "style", section: "🎨 Styles"},
                 ],
             },
+
+            gitRawCommitsOpts: {merges: false},
 
             recommendedBumpOpts: {
                 preset: "conventionalcommits",
