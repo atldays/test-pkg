@@ -1,4 +1,3 @@
-
 /** @type {import('release-it').Config} */
 module.exports = {
     ci: true,
@@ -43,19 +42,19 @@ module.exports = {
                     {type: "build", section: "🏗️ Build System", hidden: true},
                     {type: "ci", section: "🤖 CI"},
                     {type: "chore", section: "🧹 Chores", hidden: true},
-                    {type: "revert", section: "⏪ Reverts"}
+                    {type: "revert", section: "⏪ Reverts"},
                 ],
             },
 
             recommendedBumpOpts: {
                 preset: "conventionalcommits",
-                whatBump: (commits) => {
+                whatBump: commits => {
                     let hasBreaking = false;
                     let hasFeat = false;
                     let hasPatch = false;
 
                     for (const c of commits) {
-                        if (c.notes && c.notes.some((n) => /BREAKING CHANGE/i.test(n.title || n.text || ""))) {
+                        if (c.notes && c.notes.some(n => /BREAKING CHANGE/i.test(n.title || n.text || ""))) {
                             hasBreaking = true;
 
                             break;
