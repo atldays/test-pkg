@@ -1,6 +1,9 @@
 # Changelog
 
 
+* Merge pull request #7 from atldays/develop (94edab2)
+* ci: add branch sync step to release workflow (9c2cd04)
+
 * Merge pull request #6 from atldays/develop (f52bd51)
 * Merge pull request #5 from atldays/develop (b351401)
 * Merge pull request #4 from atldays/develop (2f83652)
