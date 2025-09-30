@@ -65,15 +65,5 @@
         "noExplicitAny": "off"
       }
     }
-  },
-  "overrides": [
-    {
-      "includes": [
-        "src/providers/AbstractStorage.ts"
-      ],
-      "linter": {
-        "enabled": false
-      }
-    }
-  ]
+  }
 }
