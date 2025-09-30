@@ -1,6 +1,10 @@
 # Changelog
 
 
+* Merge pull request #8 from atldays/develop (dcf4c22)
+* fix: update release-it config for customization and readability (0248223)
+* Merge main into develop (46455d2)
+
 * Merge pull request #7 from atldays/develop (94edab2)
 * ci: add branch sync step to release workflow (9c2cd04)
 
