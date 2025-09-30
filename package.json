@@ -9,6 +9,14 @@
   ],
   "license": "MIT",
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atldays/test-pkg"
+  },
+  "homepage": "https://github.com/atldays/test-pkg",
+  "bugs": {
+    "url": "https://github.com/atldays/test-pkg/issues"
+  },
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
