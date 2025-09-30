@@ -1,6 +1,10 @@
 # Changelog
 
 
+* Merge pull request #9 from atldays/develop (5ff5871)
+* refactor: enhance release-it configuration for better customization (0ecb2b7)
+* Merge main into develop (3c1f45a)
+
 * Merge pull request #8 from atldays/develop (dcf4c22)
 * fix: update release-it config for customization and readability (0248223)
 * Merge main into develop (46455d2)
