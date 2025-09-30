@@ -1,44 +1,65 @@
 {
-	"name": "@young-money/test-pkg",
-	"version": "1.0.0",
-	"description": "A tiny npm package that provides a simple add(a, b) function.",
-	"keywords": ["add", "sum", "utility"],
-	"license": "MIT",
-	"author": "",
-	"type": "module",
-	"main": "dist/index.cjs",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
-		}
-	},
-	"files": ["dist"],
-	"sideEffects": false,
-	"engines": {
-		"node": ">=18"
-	},
-	"scripts": {
-		"build": "tsup",
-		"dev": "tsup --watch",
-		"test": "jest",
-		"test:watch": "jest --watchAll",
-		"lint": "biome lint .",
-		"format": "biome format --write .",
-		"format:check": "biome format .",
-		"prepublishOnly": "npm run lint && npm run format:check && npm run test && npm run build"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^2.2.4",
-		"@swc/jest": "^0.2.36",
-		"jest": "^30.2.0",
-		"jest-environment-jsdom": "^30.2.0",
-		"ts-jest": "^29.2.5",
-		"tsup": "^8.1.0",
-		"typescript": "^5.6.3",
-		"@types/jest": "^30.0.0"
-	}
+  "name": "@young-money/test-pkg",
+  "version": "1.0.0",
+  "description": "A tiny npm package that provides a simple add(a, b) function.",
+  "keywords": [
+    "add",
+    "sum",
+    "utility"
+  ],
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "prepublishOnly": "npm run build",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "jest",
+    "test:ci": "jest --ci --passWithNoTests",
+    "test:related": "jest --bail --passWithNoTests --findRelatedTests",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,cjs,mjs}": [
+      "biome check --write --unsafe",
+      "npm run test:related --"
+    ],
+    "*.{json,css,scss,html}": [
+      "biome format --write"
+    ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@swc/jest": "^0.2.36",
+    "@types/jest": "^30.0.0",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "lint-staged": "^16.2.3",
+    "ts-jest": "^29.2.5",
+    "tsup": "^8.1.0",
+    "typescript": "^5.6.3"
+  }
 }

@@ -5,8 +5,8 @@
  * @returns The sum of a and b
  */
 export function add(a: number, b: number): number {
-	if (typeof a !== "number" || typeof b !== "number") {
-		throw new TypeError("add(a, b) expects both arguments to be numbers");
-	}
-	return a + b;
+    if (typeof a !== "number" || typeof b !== "number") {
+        throw new TypeError("add(a, b) expects both arguments to be numbers");
+    }
+    return a + b;
 }

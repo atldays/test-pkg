@@ -7,18 +7,18 @@ export default {
     extensionsToTreatAsEsm: [".ts", ".tsx"],
     transform: {
         "^.+\\.(ts|tsx)$": [
-            "@swc/jest",
+            "ts-jest",
             {
-                jsc: {
-                    parser: { syntax: "typescript", tsx: true },
-                    target: "es2022",
-                    transform: { react: { runtime: "automatic" } }
+                tsconfig: {
+                    target: "ES2022",
+                    jsx: "react-jsx"
                 },
-                module: { type: "commonjs" }
+                diagnostics: true
             }
-        ],
+        ]
     },
     moduleNameMapper: {
+        // Support ESM-style imports without explicit .js extension in TS
         "^(\\.{1,2}/.*)\\.js$": "$1",
     },
 } satisfies Config;
