@@ -38,7 +38,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "biome lint .",
     "format": "biome format --write .",
-    "format:check": "biome format ."
+    "format:check": "biome format .",
+    "release": "release-it",
+    "release:ci": "release-it --ci"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,cjs,mjs}": [
@@ -59,6 +61,8 @@
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
     "lint-staged": "^16.2.3",
+    "release-it": "^19.0.5",
+    "@release-it/conventional-changelog": "^10.0.1",
     "ts-jest": "^29.2.5",
     "tsup": "^8.1.0",
     "typescript": "^5.6.3"
