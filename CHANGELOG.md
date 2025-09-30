@@ -1,5 +1,8 @@
 # Changelog
 
+* Merge pull request #10 from atldays/develop (5265094)
+* ci: update release-it and workflow configuration for improved release process (a62519b)
+* Merge main into develop (ef9da65)
 
 * Merge pull request #9 from atldays/develop (5ff5871)
 * refactor: enhance release-it configuration for better customization (0ecb2b7)
