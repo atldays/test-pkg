@@ -1,5 +1,11 @@
 # Changelog
 
+* Merge pull request #11 from atldays/develop (02aeb9b)
+* fix: add `conventional-commits-parser` dependency for dev tooling (b83bbb4)
+* fix: update dependencies and add overrides for dev tooling (534c901)
+* fix: update dependencies and add overrides for dev tooling (8b95eb5)
+* Merge main into develop (6595ef8)
+
 * Merge pull request #10 from atldays/develop (5265094)
 * ci: update release-it and workflow configuration for improved release process (a62519b)
 * Merge main into develop (ef9da65)
