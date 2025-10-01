@@ -10,3 +10,16 @@ export function add(a: number, b: number): number {
     }
     return a + b;
 }
+
+/**
+ * Subtracts b from a.
+ * @param a - The minuend
+ * @param b - The subtrahend
+ * @returns The difference a - b
+ */
+export function subtract(a: number, b: number): number {
+    if (typeof a !== "number" || typeof b !== "number") {
+        throw new TypeError("subtract(a, b) expects both arguments to be numbers");
+    }
+    return a - b;
+}
