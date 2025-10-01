@@ -13,7 +13,8 @@ const types = new Map([
     ["revert", "⏪ Reverts"],
 ]);
 
-const repoUrl = pkg && pkg.repository && pkg.repository.url ? pkg.repository.url.replace(/\.git$/, "") : null;
+const normalizeRepoUrl = (url) => url.replace(/^git\+/, "").replace(/\.git$/, "");
+const repoUrl = pkg && pkg.repository && pkg.repository.url ? normalizeRepoUrl(pkg.repository.url) : null;
 
 /** @type {import('release-it').Config} */
 module.exports = {
@@ -35,6 +36,8 @@ module.exports = {
         release: true,
         releaseName: "v${version}",
         autoGenerate: false,
+        // Ensure GitHub receives exactly the generated changelog body
+        releaseNotes: ({changelog}) => changelog,
     },
 
     npm: {
@@ -60,7 +63,8 @@ module.exports = {
                 repoUrl,
             },
 
-            gitRawCommitsOpts: {merges: false},
+            // Strictly exclude merge commits
+            gitRawCommitsOpts: {merges: false, noMerges: true},
 
             recommendedBumpOpts: {
                 preset: "conventionalcommits",
@@ -72,7 +76,6 @@ module.exports = {
                     for (const commit of commits) {
                         if (commit.notes && commit.notes.some(n => /BREAKING CHANGE/i.test(n.title || n.text || ""))) {
                             isMajor = true;
-
                             break;
                         }
 

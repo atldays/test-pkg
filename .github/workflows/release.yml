@@ -45,6 +45,8 @@ jobs:
       - name: Run release-it
         run: npm run release -- --ci
         env:
+          DEBUG: release-it:*,@release-it/*
+          HUSKY: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
