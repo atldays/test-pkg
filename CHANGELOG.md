@@ -1,5 +1,16 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.3.1 (2025-10-01)
+
+### ⚡️ Performance Improvements
+
+* **subtract:** add unit tests for `add` and `subtract` functions ([2c33347](https://github.com/atldays/test-pkg/commit/2c333472365ee2f0cc7e00e3ee31684a6ee851d9))
+
+  - Introduced comprehensive tests for the `add` function,
+    including validations for positive, negative, and invalid inputs.
+  - Added tests for the newly implemented `subtract` function,
+    covering various scenarios like decimals, zero handling, and input validation.
+
 ## 🚀 Release `@young-money/test-pkg` v1.3.0 (2025-10-01)
 
 ### ✨ Features
