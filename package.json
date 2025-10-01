@@ -48,7 +48,7 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "release": "release-it -VV --config=.release-it.cjs",
-    "release:ci": "release-it --ci -VV --config=.release-it.cjs"
+    "release:ci": "release-it --ci -VV --config=.release-it.cjs --increment=conventional"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,cjs,mjs}": [

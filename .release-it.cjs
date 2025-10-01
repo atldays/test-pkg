@@ -1,4 +1,5 @@
 const pkg = require("./package.json");
+const conventionalChangelog = require("@release-it/conventional-changelog").default;
 
 const types = new Map([
     ["feat", "✨ Features"],
@@ -46,7 +47,7 @@ module.exports = {
         publishArgs: ["--provenance", "--access", "public"],
     },
 
-    increment: "conventional",
+    increment: false,
 
     plugins: {
         "@release-it/conventional-changelog": {
