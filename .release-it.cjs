@@ -10,11 +10,10 @@ const types = new Map([
     ["build", "🏗️ Build System"],
     ["ci", "🤖 CI"],
     ["chore", "🧹 Chores"],
-    ["revert", "⏪ Reverts"]
+    ["revert", "⏪ Reverts"],
 ]);
 
 const repoUrl = pkg && pkg.repository && pkg.repository.url ? pkg.repository.url.replace(/\.git$/, "") : null;
-
 
 /** @type {import('release-it').Config} */
 module.exports = {
@@ -35,7 +34,7 @@ module.exports = {
     github: {
         release: true,
         releaseName: "v${version}",
-        autoGenerate: false
+        autoGenerate: false,
     },
 
     npm: {
@@ -52,8 +51,7 @@ module.exports = {
             preset: "conventionalcommits",
 
             presetConfig: {
-                types: [...types.entries()]
-                    .map(([type, section]) => ({type, section, hidden: false})),
+                types: [...types.entries()].map(([type, section]) => ({type, section, hidden: false})),
             },
 
             context: {
