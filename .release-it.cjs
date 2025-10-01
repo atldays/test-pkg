@@ -35,6 +35,7 @@ module.exports = {
     github: {
         release: true,
         releaseName: "v${version}",
+        autoGenerate: false
     },
 
     npm: {
