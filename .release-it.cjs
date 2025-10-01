@@ -13,7 +13,7 @@ const types = new Map([
     ["revert", "⏪ Reverts"],
 ]);
 
-const normalizeRepoUrl = (url) => url.replace(/^git\+/, "").replace(/\.git$/, "");
+const normalizeRepoUrl = url => url.replace(/^git\+/, "").replace(/\.git$/, "");
 const repoUrl = pkg && pkg.repository && pkg.repository.url ? normalizeRepoUrl(pkg.repository.url) : null;
 
 /** @type {import('release-it').Config} */
