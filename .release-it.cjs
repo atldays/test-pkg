@@ -47,8 +47,6 @@ module.exports = {
         publishArgs: ["--provenance", "--access", "public"],
     },
 
-    increment: false,
-
     plugins: {
         "@release-it/conventional-changelog": {
             infile: "CHANGELOG.md",
