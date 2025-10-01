@@ -1,5 +1,4 @@
 const pkg = require("./package.json");
-const conventionalChangelog = require("@release-it/conventional-changelog").default;
 
 const types = new Map([
     ["feat", "✨ Features"],
