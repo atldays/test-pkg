@@ -1,5 +1,14 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.3.0 (2025-10-01)
+
+### ✨ Features
+
+* add `subtract` function to arithmetic utilities ([badb23e](https://github.com/atldays/test-pkg/commit/badb23ee55e641c8842b3cd18eaef0893a0cd0c2))
+
+  - Introduced a new `subtract` function to perform subtraction of two numbers.
+  - Included input validation to ensure arguments are of type `number`.
+
 ## 🚀 Release `@young-money/test-pkg` v1.2.0 (2025-10-01)
 
 ### ✨ Features
