@@ -1,5 +1,32 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.7.0 (2025-10-02)
+
+### ✨ Features
+
+* enhance release workflow and update dependencies ([0b5384f](https://github.com/atldays/test-pkg/commit/0b5384f1dc9ce28d1ed0e797a3e99c721b98ef58))
+
+  - Integrated dynamic contributors retrieval into release process.
+  - Added `getContributors` script for generating contributor lists.
+  - Updated `.release-it.cjs` configuration to include contributor details in release notes.
+
+
+### 🛠️ Refactoring
+
+* simplify contributor mapping logic and update dependencies ([94f362a](https://github.com/atldays/test-pkg/commit/94f362a6daabd5da835bd764b8e0746fa540e142))
+
+  - Refactored `git.cjs` to simplify arrow function syntax in mapping and filtering logic.
+  - Updated `package-lock.json` to include `conventional-commits-parser` as a dependency.
+  - Adjusted `.release-it.cjs` for improved readability of breaking change checks.
+
+
+
+
+#### 🙌 Contributors
+
+- Anjey Tsibylskij <anjey.tsibylskij@gmail.com>
+- [@atldays](https://github.com/atldays) — atldays
+
 ## 🚀 Release `@young-money/test-pkg` v1.6.1 (2025-10-02)
 
 ## 🚀 Release `@young-money/test-pkg` v1.6.0 (2025-10-02)
