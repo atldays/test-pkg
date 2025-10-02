@@ -1,5 +1,7 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.6.1 (2025-10-02)
+
 ## 🚀 Release `@young-money/test-pkg` v1.6.0 (2025-10-02)
 
 ### ✨ Features
