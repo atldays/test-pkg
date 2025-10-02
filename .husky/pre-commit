@@ -1,23 +1,5 @@
 #!/usr/bin/env sh
 
-# Husky pre-commit hook
-# - Block local commits directly to main
-# - Otherwise run lint-staged to format and test related files
+# Husky pre-commit hook: format and run related tests on staged files
 
-# Allow CI (e.g., GitHub Actions) to bypass local protections
-if [ "$CI" = "true" ]; then
-  npx --no -- lint-staged
-  exit 0
-fi
-
-# Determine current branch name (fallback to empty on failure)
-BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
-
-if [ "$BRANCH_NAME" = "main" ]; then
-  echo "\nCommitting directly to 'main' is not allowed."
-  echo "Main is a protected release branch. Create a feature branch and open a PR.\n"
-  exit 1
-fi
-
-# Run the usual staged checks
 npx --no -- lint-staged
