@@ -1,6 +1,6 @@
 {
   "name": "@young-money/test-pkg",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A tiny npm package that provides a simple add(a, b) function.",
   "keywords": [
     "add",
