@@ -32,7 +32,7 @@ function getContributors() {
         const lines = out.split("\n").filter(Boolean);
 
         return lines
-            .map((line) => {
+            .map(line => {
                 const m = line.match(/^\s*(\d+)\s+(.*?)(?:\s+<([^>]+)>)?\s*$/);
                 const count = Number(m?.[1] || 0);
                 const name = (m?.[2] || "").trim();
@@ -41,7 +41,7 @@ function getContributors() {
 
                 return {count, name, email, ...gh};
             })
-            .filter((p) => {
+            .filter(p => {
                 const n = (p.name || "").toLowerCase();
                 const e = (p.email || "").toLowerCase();
 

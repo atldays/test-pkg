@@ -76,7 +76,10 @@ module.exports = () => {
                         let isPatch = false;
 
                         for (const commit of commits) {
-                            if (commit.notes && commit.notes.some(n => /BREAKING CHANGE/i.test(n.title || n.text || ""))) {
+                            if (
+                                commit.notes &&
+                                commit.notes.some(n => /BREAKING CHANGE/i.test(n.title || n.text || ""))
+                            ) {
                                 isMajor = true;
                                 break;
                             }
