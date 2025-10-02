@@ -1,5 +1,64 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.6.0 (2025-10-02)
+
+### ✨ Features
+
+* bump package version to 1.4.0 ([e7f7852](https://github.com/atldays/test-pkg/commit/e7f78525153fbb2b54ec2c390d165e6da8dd1849))
+
+
+* bump package version to 1.5.0 ([30ebbcb](https://github.com/atldays/test-pkg/commit/30ebbcbfff628d6fa6bce0bcd03afb557b6ab4bb))
+
+
+* **fix:** bump package version to 1.3.3 ([90c1d10](https://github.com/atldays/test-pkg/commit/90c1d10eaf4e5391a99ef44e92e953b457b932e6))
+
+
+
+### 🐛 Bug Fixed
+
+* **husky:** simplify pre-commit and pre-push hooks ([c45d8f9](https://github.com/atldays/test-pkg/commit/c45d8f9797e5f502c111eb6f66e46e6f670d909f))
+
+  - Removed `main` branch protection logic from `pre-commit` and `pre-push` hooks.
+  - Streamlined hooks to focus on running linting, type checks, tests, and build tasks.
+  - Simplified execution logic for enhanced maintainability.
+
+
+### 🤖 CI
+
+* refine workflow triggers and simplify tag fetching ([e9fe0ff](https://github.com/atldays/test-pkg/commit/e9fe0ff3b002f761daddd62cbf4544ea90737ee3))
+
+  - Removed `main` and `release/**` branches from `pull_request` trigger in `ci.yml`.
+  - Simplified tag fetching in `release.yml` by utilizing `fetch-tags: true`.
+
+* **release:** enhance release workflow with dynamic inputs ([bfcb0e0](https://github.com/atldays/test-pkg/commit/bfcb0e07c1d9cea2816959b0e7b90562848469a9))
+
+  - Added support for dynamic inputs (`version`, `preid`, `npm_tag`) to trigger custom releases.
+  - Improved flexibility for pre-releases and npm dist-tag management.
+  - Updated release-it command to accommodate new input arguments.
+
+* update workflows to improve branch handling and tag fetching ([6bf32b7](https://github.com/atldays/test-pkg/commit/6bf32b70c4d5b9678dd87c345b4757384ecc074b))
+
+  - Added `main` and `release/**` branches for `pull_request` trigger in `ci.yml`.
+  - Updated `release.yml` to force-fetch all Git tags for accurate release processing.
+
+
+### 🧹 Chores
+
+* bump package version to 1.3.2 ([85bc6c6](https://github.com/atldays/test-pkg/commit/85bc6c6cecb05fae019dafa34f0df442baa0ff3f))
+
+
+* **CHANGELOG:** remove old history for cleaner changelog maintenance ([fc89386](https://github.com/atldays/test-pkg/commit/fc89386192f7532e7831a76ec1cd0517ec1b0dc0))
+
+
+* **gitignore:** add `.DS_Store` to ignore list ([66598ee](https://github.com/atldays/test-pkg/commit/66598ee7661b08e37353984523a27d681a6e54b6))
+
+
+* **husky:** prevent direct commits and pushes to `main` ([18b6f28](https://github.com/atldays/test-pkg/commit/18b6f286d495e6905bacd930e3edb2e369279292))
+
+  - Updated `pre-commit` hook to block direct commits to `main` and added CI bypass.
+  - Enhanced `pre-push` hook to block direct pushes to `main`, including fallback checks.
+  - Added user-friendly error messages guiding contributors to use feature branches and PRs.
+
 ## 🚀 Release `@young-money/test-pkg` v1.3.1 (2025-10-01)
 
 ### ⚡️ Performance Improvements
