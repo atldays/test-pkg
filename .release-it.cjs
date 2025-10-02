@@ -1,4 +1,5 @@
 const pkg = require("./package.json");
+const {getContributors} = require("./scripts/git.cjs");
 
 const types = new Map([
     ["feat", "✨ Features"],
@@ -16,129 +17,135 @@ const types = new Map([
 const normalizeRepoUrl = url => url.replace(/^git\+/, "").replace(/\.git$/, "");
 const repoUrl = pkg && pkg.repository && pkg.repository.url ? normalizeRepoUrl(pkg.repository.url) : null;
 
-/** @type {import('release-it').Config} */
-module.exports = {
-    ci: true,
+module.exports = () => {
+    const contributors = getContributors();
 
-    git: {
-        requireCleanWorkingDir: true,
-        requireUpstream: false,
-        requireBranch: false,
-        commit: true,
-        commitMessage: "chore(release): v${version}",
-        tag: true,
-        tagName: "v${version}",
-        tagAnnotation: "v${version}",
-        push: true,
-    },
+    return {
+        ci: true,
 
-    github: {
-        release: true,
-        releaseName: "v${version}",
-        autoGenerate: false,
-        // Ensure GitHub receives exactly the generated changelog body
-        releaseNotes: ({changelog}) => changelog,
-    },
+        git: {
+            requireCleanWorkingDir: true,
+            requireUpstream: false,
+            requireBranch: false,
+            commit: true,
+            commitMessage: "chore(release): v${version}",
+            tag: true,
+            tagName: "v${version}",
+            tagAnnotation: "v${version}",
+            push: true,
+        },
 
-    npm: {
-        publish: true,
-        versionArgs: ["--no-git-tag-version"],
-        publishArgs: ["--provenance", "--access", "public"],
-    },
+        github: {
+            release: true,
+            releaseName: "v${version}",
+            autoGenerate: false,
+            // Ensure GitHub receives exactly the generated changelog body
+            releaseNotes: ({changelog}) => changelog,
+        },
 
-    plugins: {
-        "@release-it/conventional-changelog": {
-            infile: "CHANGELOG.md",
-            preset: "conventionalcommits",
+        npm: {
+            publish: true,
+            versionArgs: ["--no-git-tag-version"],
+            publishArgs: ["--provenance", "--access", "public"],
+        },
 
-            presetConfig: {
-                types: [...types.entries()].map(([type, section]) => ({type, section, hidden: false})),
-            },
-
-            context: {
-                name: pkg.name,
-                pkg: {name: pkg.name},
-                repoUrl,
-            },
-
-            // Strictly exclude merge commits
-            gitRawCommitsOpts: {merges: false, noMerges: true},
-
-            recommendedBumpOpts: {
+        plugins: {
+            "@release-it/conventional-changelog": {
+                infile: "CHANGELOG.md",
                 preset: "conventionalcommits",
-                whatBump: commits => {
-                    let isMajor = false;
-                    let isMinor = false;
-                    let isPatch = false;
 
-                    for (const commit of commits) {
-                        if (commit.notes && commit.notes.some(n => /BREAKING CHANGE/i.test(n.title || n.text || ""))) {
-                            isMajor = true;
-                            break;
-                        }
-
-                        const type = (commit.type || "").toLowerCase();
-
-                        if (type === "feat") {
-                            isMinor = true;
-                        }
-
-                        if (["fix", "perf", "refactor", "ci"].includes(type)) {
-                            isPatch = true;
-                        }
-                    }
-
-                    if (isMajor) return {level: 0};
-                    if (isMinor) return {level: 1};
-                    if (isPatch) return {level: 2};
-
-                    return null;
+                presetConfig: {
+                    types: [...types.entries()].map(([type, section]) => ({type, section, hidden: false})),
                 },
-            },
-            writerOpts: {
-                headerPartial:
-                    "## 🚀 Release {{#if name}}`{{name}}` {{else}}{{#if @root.pkg}}`{{@root.pkg.name}}` {{/if}}{{/if}}v{{version}} ({{date}})\n\n",
-                mainTemplate:
-                    "{{> header}}\n" +
-                    "{{#each commitGroups}}\n### {{title}}\n\n{{#each commits}}{{> commit root=@root}}\n{{/each}}\n\n{{/each}}" +
-                    "{{#unless commitGroups}}\n{{#each commits}}{{> commit root=@root}}\n{{/each}}{{/unless}}",
-                commitPartial:
-                    "{{#if type}}* {{#if scope}}**{{scope}}:** {{/if}}{{#if subject}}{{subject}}{{else}}{{header}}{{/if}}{{#if href}} ([{{shorthash}}]({{href}})){{/if}}\n\n{{#if body}}{{{body}}}\n{{/if}}{{/if}}",
-                groupBy: "type",
-                commitGroupsSort: "title",
-                commitsSort: ["scope", "subject"],
-                transform: commit => {
-                    const nextCommit = {...commit};
 
-                    const type = (nextCommit.type || "").toLowerCase();
-                    const section = types.get(type);
+                context: {
+                    name: pkg.name,
+                    pkg: {name: pkg.name},
+                    repoUrl,
+                    contributors,
+                },
 
-                    if (section) {
-                        nextCommit.type = section;
-                    } else {
-                        return false;
-                    }
+                // Strictly exclude merge commits
+                gitRawCommitsOpts: {merges: false, noMerges: true},
 
-                    if (nextCommit.body) {
-                        const body = nextCommit.body.replace(/\r\n/g, "\n").trim();
+                recommendedBumpOpts: {
+                    preset: "conventionalcommits",
+                    whatBump: commits => {
+                        let isMajor = false;
+                        let isMinor = false;
+                        let isPatch = false;
 
-                        nextCommit.body = body
-                            .split("\n")
-                            .map(line => (line ? "  " + line : ""))
-                            .join("\n");
-                    }
+                        for (const commit of commits) {
+                            if (commit.notes && commit.notes.some(n => /BREAKING CHANGE/i.test(n.title || n.text || ""))) {
+                                isMajor = true;
+                                break;
+                            }
 
-                    if (!nextCommit.href && nextCommit.hash && repoUrl) {
-                        nextCommit.href = `${repoUrl}/commit/${nextCommit.hash}`;
-                    }
+                            const type = (commit.type || "").toLowerCase();
 
-                    if (!nextCommit.shorthash && nextCommit.hash) {
-                        nextCommit.shorthash = nextCommit.hash.slice(0, 7);
-                    }
+                            if (type === "feat") {
+                                isMinor = true;
+                            }
 
-                    return nextCommit;
+                            if (["fix", "perf", "refactor", "ci"].includes(type)) {
+                                isPatch = true;
+                            }
+                        }
+
+                        if (isMajor) return {level: 0};
+                        if (isMinor) return {level: 1};
+                        if (isPatch) return {level: 2};
+
+                        return null;
+                    },
+                },
+                writerOpts: {
+                    headerPartial:
+                        "## 🚀 Release {{#if name}}`{{name}}` {{else}}{{#if @root.pkg}}`{{@root.pkg.name}}` {{/if}}{{/if}}v{{version}} ({{date}})\n\n",
+                    footerPartial: `{{#if @root.contributors.length}}\n#### 🙌 Contributors\n\n{{#each @root.contributors}}- {{#if url}}[@{{login}}]({{url}}){{#if name}} — {{name}}{{/if}}{{else}}{{name}}{{#if email}} <{{email}}>{{/if}}{{/if}}\n{{/each}}{{/if}}`,
+                    mainTemplate:
+                        "{{> header}}\n" +
+                        "{{#each commitGroups}}\n### {{title}}\n\n{{#each commits}}{{> commit root=@root}}\n{{/each}}\n\n{{/each}}" +
+                        "{{#unless commitGroups}}\n{{#each commits}}{{> commit root=@root}}\n{{/each}}{{/unless}}\n\n" +
+                        "{{> footer}}",
+                    commitPartial:
+                        "{{#if type}}* {{#if scope}}**{{scope}}:** {{/if}}{{#if subject}}{{subject}}{{else}}{{header}}{{/if}}{{#if href}} ([{{shorthash}}]({{href}})){{/if}}\n\n{{#if body}}{{{body}}}\n{{/if}}{{/if}}",
+                    groupBy: "type",
+                    commitGroupsSort: "title",
+                    commitsSort: ["scope", "subject"],
+                    transform: commit => {
+                        const nextCommit = {...commit};
+
+                        const type = (nextCommit.type || "").toLowerCase();
+                        const section = types.get(type);
+
+                        if (section) {
+                            nextCommit.type = section;
+                        } else {
+                            return false;
+                        }
+
+                        if (nextCommit.body) {
+                            const body = nextCommit.body.replace(/\r\n/g, "\n").trim();
+
+                            nextCommit.body = body
+                                .split("\n")
+                                .map(line => (line ? "  " + line : ""))
+                                .join("\n");
+                        }
+
+                        if (!nextCommit.href && nextCommit.hash && repoUrl) {
+                            nextCommit.href = `${repoUrl}/commit/${nextCommit.hash}`;
+                        }
+
+                        if (!nextCommit.shorthash && nextCommit.hash) {
+                            nextCommit.shorthash = nextCommit.hash.slice(0, 7);
+                        }
+
+                        return nextCommit;
+                    },
                 },
             },
         },
-    },
+    };
 };
