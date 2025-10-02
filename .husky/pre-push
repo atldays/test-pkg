@@ -1,47 +1,7 @@
 #!/usr/bin/env sh
 
-# Husky pre-push hook
-# - Block local pushes to main
-# - Otherwise run typecheck, tests, and build
+# Husky pre-push hook: typecheck, run full tests, and build
 
-# Allow CI (e.g., GitHub Actions) to bypass local protections
-if [ "$CI" = "true" ]; then
-  exit 0
-fi
-
-REMOTE_NAME="$1"
-REMOTE_URL="$2"
-
-BLOCK_PUSH=0
-SAW_INPUT=0
-
-# Read refs from stdin: <local ref> <local sha> <remote ref> <remote sha>
-while read -r LOCAL_REF LOCAL_SHA REMOTE_REF REMOTE_SHA
-do
-  SAW_INPUT=1
-  if [ "$REMOTE_REF" = "refs/heads/main" ]; then
-    BLOCK_PUSH=1
-    break
-  fi
-done
-
-# Fallback: if no ref lines provided, block if current branch is main
-if [ "$SAW_INPUT" -eq 0 ]; then
-  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
-  if [ "$CURRENT_BRANCH" = "main" ]; then
-    BLOCK_PUSH=1
-  fi
-fi
-
-if [ "$BLOCK_PUSH" -eq 1 ]; then
-  echo ""
-  echo "Pushing to 'main' is not allowed."
-  echo "Main is a protected release branch. Use PRs and let CI merge."
-  echo ""
-  exit 1
-fi
-
-# Run full checks before pushing
 npm run typecheck || exit 1
 npm run test:ci || exit 1
 npm run build || exit 1
