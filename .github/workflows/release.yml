@@ -60,3 +60,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           HUSKY: 0
+
