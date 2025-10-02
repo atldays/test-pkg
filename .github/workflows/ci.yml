@@ -8,7 +8,9 @@ on:
       - 'hotfix/**'
   pull_request:
     branches:
+      - main
       - develop
+      - 'release/**'
       - 'feature/**'
       - 'hotfix/**'
   workflow_call:
