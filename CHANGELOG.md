@@ -1,5 +1,19 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v6.0.0 (2025-10-06)
+
+### ✨ Features
+
+* add square root function and tests ([ed6dcc8](https://github.com/atldays/test-pkg/commit/ed6dcc872132ddb4404584d102c7a55cb72881c4))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v5.0.0 (2025-10-06)
 
 ### ✨ Features
