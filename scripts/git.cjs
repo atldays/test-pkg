@@ -1,12 +1,23 @@
 const {execSync} = require("child_process");
 
 function deriveGithubFromEmail(email) {
-    if (!email) return {};
+    if (!email) {
+        return {};
+    }
+
     const m = email.match(/^([^@]+)@users\.noreply\.github\.com$/i);
-    if (!m) return {};
+
+    if (!m) {
+        return {};
+    }
+
     const local = m[1];
     const login = local.includes("+") ? local.split("+").pop() : local;
-    if (!login) return {};
+
+    if (!login) {
+        return {};
+    }
+
     return {login, url: `https://github.com/${login}`};
 }
 
