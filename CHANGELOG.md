@@ -1,5 +1,19 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v4.0.0 (2025-10-06)
+
+### 🧩 Other
+
+* refactor!: remove redundant comment for fallback commit type logic ([ebd322c](https://github.com/atldays/test-pkg/commit/ebd322c9c14b0673c3b067059b770f3ec93eb29d))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v3.0.1 (2025-10-06)
 
 ### 🧹 Chores
