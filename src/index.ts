@@ -53,3 +53,19 @@ export function divide(a: number, b: number): number {
     }
     return a / b;
 }
+
+/**
+ * Calculates the square root of x.
+ * @param x - The input value
+ * @returns The non-negative square root of x
+ * @throws RangeError if x is negative
+ */
+export function sqrt(x: number): number {
+    if (typeof x !== "number") {
+        throw new TypeError("sqrt(x) expects the argument to be a number");
+    }
+    if (x < 0) {
+        throw new RangeError("sqrt(x) does not allow negative numbers");
+    }
+    return Math.sqrt(x);
+}

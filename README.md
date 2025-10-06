@@ -1,6 +1,6 @@
 # test-pkg
 
-A tiny npm package that provides simple arithmetic functions: `add(a, b)`, `subtract(a, b)`, `multiply(a, b)`, and `divide(a, b)`. Written in TypeScript and shipped with type definitions.
+A tiny npm package that provides simple arithmetic functions: `add(a, b)`, `subtract(a, b)`, `multiply(a, b)`, `divide(a, b)`, and `sqrt(x)`. Written in TypeScript and shipped with type definitions.
 
 ## Install
 
@@ -17,23 +17,25 @@ pnpm add test-pkg
 TypeScript / ESM:
 
 ```ts
-import { add, subtract, multiply, divide } from "test-pkg";
+import { add, subtract, multiply, divide, sqrt } from "test-pkg";
 
 console.log(add(2, 3)); // 5
 console.log(subtract(5, 2)); // 3
 console.log(multiply(2, 3)); // 6
 console.log(divide(6, 3)); // 2
+console.log(sqrt(9)); // 3
 ```
 
 CommonJS:
 
 ```js
-const { add, subtract, multiply, divide } = require("test-pkg");
+const { add, subtract, multiply, divide, sqrt } = require("test-pkg");
 
 console.log(add(2, 3)); // 5
 console.log(subtract(5, 2)); // 3
 console.log(multiply(2, 3)); // 6
 console.log(divide(6, 3)); // 2
+console.log(sqrt(9)); // 3
 ```
 
 ## API
@@ -42,6 +44,7 @@ console.log(divide(6, 3)); // 2
 - `subtract(a: number, b: number): number` — Returns the difference a - b. Throws a TypeError if any argument is not a number.
 - `multiply(a: number, b: number): number` — Returns the product a * b. Throws a TypeError if any argument is not a number.
 - `divide(a: number, b: number): number` — Returns the quotient a / b. Throws a TypeError if any argument is not a number, and a RangeError if b is 0.
+- `sqrt(x: number): number` — Returns the non-negative square root of x. Throws a TypeError if the argument is not a number, and a RangeError if x is negative.
 
 ## Development
 
