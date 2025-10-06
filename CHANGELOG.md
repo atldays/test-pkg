@@ -1,5 +1,21 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v5.0.0 (2025-10-06)
+
+### ✨ Features
+
+* add custom parser options for changelog generation ([8d6f53b](https://github.com/atldays/test-pkg/commit/8d6f53bc54ba032e5be71d797e2478bf0f91e5d7))
+
+  - Enhanced `.release-it.cjs` to include `parserOpts` for better parsing of commit headers.
+  - Improved handling of breaking changes using specified patterns and keywords.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v4.0.0 (2025-10-06)
 
 ### 🧩 Other
