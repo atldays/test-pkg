@@ -1,5 +1,26 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.3 (2025-10-06)
+
+
+### 🤖 CI
+
+* fix syntax error in condition block of CI workflow ([d889c9b](https://github.com/atldays/test-pkg/commit/d889c9b7ea88976b07be1c6617f8203f960e910c))
+
+
+* refactor CI workflows for dynamic matrix computation ([6011a83](https://github.com/atldays/test-pkg/commit/6011a83ed3d50b3d51c364f4642f3938aeb9605d))
+
+  - Introduced a `compute-matrix` job to dynamically define the build matrix based on workflow inputs.
+  - Consolidated full and reduced matrix builds into a single `build-and-test` job.
+  - Simplified matrix definitions and improved reusability with outputs from `compute-matrix`.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 3 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.2 (2025-10-06)
 
 
