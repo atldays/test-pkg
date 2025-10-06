@@ -1,5 +1,22 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.7.1 (2025-10-06)
+
+### 🛠️ Refactoring
+
+* improve email parsing logic and adjust contributor footer formatting ([bddc965](https://github.com/atldays/test-pkg/commit/bddc965307976760e892d42f59e72b1bae88d393))
+
+  - Updated `git.cjs` to enhance readability and maintainability of the email parsing logic.
+  - Adjusted `.release-it.cjs` to use consistent heading levels for the contributor footer.
+
+
+
+
+### 🙌 Contributors
+
+- [@atldays](https://github.com/atldays) — Anjey Tsibylskij
+- [@atldays](https://github.com/atldays) — Anjey Tsibylskij
+
 ## 🚀 Release `@young-money/test-pkg` v1.7.0 (2025-10-02)
 
 ### ✨ Features
