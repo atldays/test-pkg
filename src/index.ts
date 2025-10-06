@@ -23,3 +23,33 @@ export function subtract(a: number, b: number): number {
     }
     return a - b;
 }
+
+/**
+ * Multiplies two numbers.
+ * @param a - The first factor
+ * @param b - The second factor
+ * @returns The product a * b
+ */
+export function multiply(a: number, b: number): number {
+    if (typeof a !== "number" || typeof b !== "number") {
+        throw new TypeError("multiply(a, b) expects both arguments to be numbers");
+    }
+    return a * b;
+}
+
+/**
+ * Divides a by b.
+ * @param a - The dividend
+ * @param b - The divisor
+ * @returns The quotient a / b
+ * @throws RangeError if b is 0
+ */
+export function divide(a: number, b: number): number {
+    if (typeof a !== "number" || typeof b !== "number") {
+        throw new TypeError("divide(a, b) expects both arguments to be numbers");
+    }
+    if (b === 0) {
+        throw new RangeError("divide(a, b) does not allow division by zero");
+    }
+    return a / b;
+}
