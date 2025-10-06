@@ -144,6 +144,12 @@ module.exports = () => {
                 infile: "CHANGELOG.md",
                 preset: "conventionalcommits",
 
+                parserOpts: {
+                    headerPattern: /^(\w+)(?:\(([^)]+)\))?(!)?:\s(.+?)(?:\s\(#\d+\))?$/,
+                    headerCorrespondence: ["type", "scope", "breaking", "subject"],
+                    noteKeywords: ["BREAKING CHANGE", "BREAKING-CHANGE"],
+                },
+
                 presetConfig: {
                     types: [...types.entries()].map(([type, section]) => ({type, section, hidden: false})),
                 },
