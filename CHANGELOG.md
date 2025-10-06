@@ -1,5 +1,24 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.0 (2025-10-06)
+
+### 💥 Breaking Changes
+
+* Ensured breaking changes are surfaced even if no explicit notes are provided.
+
+
+### ✨ Features
+
+* improve breaking change handling in release notes ([f33dc86](https://github.com/atldays/test-pkg/commit/f33dc8657cb1076e484595f4fd4d548012706963))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v6.0.0 (2025-10-06)
 
 ### ✨ Features
