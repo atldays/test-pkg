@@ -42,22 +42,49 @@ function getContributors() {
 
         const lines = out.split("\n").filter(Boolean);
 
-        return lines
-            .map(line => {
-                const m = line.match(/^\s*(\d+)\s+(.*?)(?:\s+<([^>]+)>)?\s*$/);
-                const count = Number(m?.[1] || 0);
-                const name = (m?.[2] || "").trim();
-                const email = (m?.[3] || "").trim() || undefined;
-                const gh = deriveGithubFromEmail(email);
+        const map = new Map();
 
-                return {count, name, email, ...gh};
-            })
-            .filter(p => {
-                const n = (p.name || "").toLowerCase();
-                const e = (p.email || "").toLowerCase();
+        for (const line of lines) {
+            const m = line.match(/^\s*(\d+)\s+(.*?)(?:\s+<([^>]+)>)?\s*$/);
 
-                return !n.includes("bot") && !e.includes("bot");
-            });
+            const count = Number(m?.[1] || 0);
+
+            const displayName = ((m?.[2] || "").trim()) || undefined;
+            const displayEmail = ((m?.[3] || "").trim()) || undefined;
+
+            const lcName = (displayName || "").toLowerCase();
+            const lcEmail = (displayEmail || "").toLowerCase();
+
+            // Filter bots using lowercase keys only
+            if (lcName.includes("bot") || lcEmail.includes("bot")) {
+                continue;
+            }
+
+            const gh = deriveGithubFromEmail(displayEmail);
+            const loginKey = gh.login ? gh.login.toLowerCase() : null;
+
+            const key = loginKey ? `gh:${loginKey}` : (lcEmail ? `em:${lcEmail}` : `nm:${lcName}`);
+
+            const existing = map.get(key);
+
+            if (existing) {
+                existing.count += count;
+                if (!existing.login && gh.login) {
+                    existing.login = gh.login;
+                    existing.url = gh.url;
+                }
+                if (!existing.name && displayName) {
+                    existing.name = displayName;
+                }
+                if (!existing.email && displayEmail) {
+                    existing.email = displayEmail;
+                }
+            } else {
+                map.set(key, {count, name: displayName, email: displayEmail, ...gh});
+            }
+        }
+
+        return Array.from(map.values());
     } catch {
         return [];
     }

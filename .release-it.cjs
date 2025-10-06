@@ -105,7 +105,7 @@ module.exports = () => {
                 writerOpts: {
                     headerPartial:
                         "## 🚀 Release {{#if name}}`{{name}}` {{else}}{{#if @root.pkg}}`{{@root.pkg.name}}` {{/if}}{{/if}}v{{version}} ({{date}})\n\n",
-                    footerPartial: `{{#if @root.contributors.length}}\n### 🙌 Contributors\n\n{{#each @root.contributors}}- {{#if url}}[@{{login}}]({{url}}){{#if name}} — {{name}}{{/if}}{{else}}{{name}}{{#if email}} <{{email}}>{{/if}}{{/if}}\n{{/each}}{{/if}}`,
+                    footerPartial: `{{#if @root.contributors.length}}\n### 🙌 Contributors\n\n{{#each @root.contributors}}- {{#if url}}{{#if name}}[{{name}}]({{url}}){{else}}[@{{login}}]({{url}}){{/if}}{{else}}{{#if email}}{{#if name}}[{{name}}]({{email}}){{else}}{{email}}{{/if}}{{else}}{{name}}{{/if}}{{/if}} — {{count}} commits\n{{/each}}{{/if}}`,
                     mainTemplate:
                         "{{> header}}\n" +
                         "{{#each commitGroups}}\n### {{title}}\n\n{{#each commits}}{{> commit root=@root}}\n{{/each}}\n\n{{/each}}" +
