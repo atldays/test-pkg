@@ -1,5 +1,19 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v3.0.1 (2025-10-06)
+
+### 🧹 Chores
+
+* **changelog:** include refactor! commits and unknown types ([01c004d](https://github.com/atldays/test-pkg/commit/01c004d2659217e0204a81c8d75405929f5de8e4))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v3.0.0 (2025-10-06)
 
 
