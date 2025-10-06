@@ -1,5 +1,22 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.7.2 (2025-10-06)
+
+### 🐛 Bug Fixed
+
+* improve contributor deduplication and enhance release notes ([d3ba3dd](https://github.com/atldays/test-pkg/commit/d3ba3dd8a1b67c3a147cb3ed95de3063914c3a74))
+
+  - Refactored `git.cjs` to introduce `Map` for better contributor deduplication logic.
+  - Filtered out bot contributors based on names and emails.
+  - Enhanced `.release-it.cjs` to include commit count per contributor in release notes.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v1.7.1 (2025-10-06)
 
 ### 🛠️ Refactoring
