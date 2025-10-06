@@ -1,5 +1,14 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v2.0.0 (2025-10-06)
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v1.7.3 (2025-10-06)
 
 ### 🛠️ Refactoring
