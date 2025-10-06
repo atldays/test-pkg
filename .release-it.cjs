@@ -155,8 +155,7 @@ module.exports = () => {
                     contributors,
                 },
 
-                // Strictly exclude merge commits
-                gitRawCommitsOpts: {merges: false, noMerges: true},
+                gitRawCommitsOpts: {noMerges: false},
 
                 recommendedBumpOpts: {
                     preset: "conventionalcommits",
