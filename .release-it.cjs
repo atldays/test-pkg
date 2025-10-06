@@ -206,13 +206,15 @@ module.exports = () => {
                     transform: commit => {
                         const nextCommit = {...commit};
 
-                        const type = (nextCommit.type || "").toLowerCase();
+                        // Normalize type: lowercase and drop trailing '!' so 'feat!' maps to 'feat'
+                        const type = (nextCommit.type || "").toLowerCase().replace(/!+$/, "");
                         const section = types.get(type);
 
                         if (section) {
                             nextCommit.type = section;
                         } else {
-                            return false;
+                            // Fallback group so unknown conventional types (or merge subjects) are not dropped
+                            nextCommit.type = "🧩 Other";
                         }
 
                         if (nextCommit.body) {
