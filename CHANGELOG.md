@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.4 (2025-10-06)
+
+
+### 🤖 CI
+
+* fix conditional logic in CI workflow ([158e176](https://github.com/atldays/test-pkg/commit/158e176ad917170b8226ab25f1650165d6856681))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.3 (2025-10-06)
 
 
