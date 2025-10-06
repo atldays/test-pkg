@@ -35,6 +35,7 @@ jobs:
           else
             echo 'matrix={"os":["ubuntu-latest"],"node":[20]}' >> $GITHUB_OUTPUT
             echo 'name_suffix=' >> $GITHUB_OUTPUT
+          fi
 
   build-and-test:
     name: Build, Lint, Test ${{ needs.compute-matrix.outputs.name_suffix }}
