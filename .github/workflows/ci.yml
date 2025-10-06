@@ -12,13 +12,24 @@ on:
       - 'feature/**'
       - 'hotfix/**'
   workflow_call:
+    inputs:
+      full:
+        description: 'Run full OS x Node matrix'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
-  build-and-test:
-    name: Build, Lint, Test
+  build-and-test-reduced:
+    if: ${{ !(github.event_name == 'workflow_call' && inputs.full) }}
+    name: Build, Lint, Test (reduced)
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,8 +37,8 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: ${{ matrix.node }}
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -48,5 +59,48 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: coverage
+          name: coverage-ubuntu-node${{ matrix.node }}
+          path: coverage
+
+  build-and-test-full:
+    if: ${{ github.event_name == 'workflow_call' && inputs.full }}
+    name: Build, Lint, Test (full matrix)
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [18, 20, 22]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test -- --coverage
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.os }}-node${{ matrix.node }}
           path: coverage
