@@ -213,7 +213,6 @@ module.exports = () => {
                         if (section) {
                             nextCommit.type = section;
                         } else {
-                            // Fallback group so unknown conventional types (or merge subjects) are not dropped
                             nextCommit.type = "🧩 Other";
                         }
 
