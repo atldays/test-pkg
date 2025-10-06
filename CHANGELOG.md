@@ -1,5 +1,23 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.2 (2025-10-06)
+
+
+### 🤖 CI
+
+* simplify CI workflows and reduce matrix complexity ([a4330b1](https://github.com/atldays/test-pkg/commit/a4330b19f325936cd98501989a250a6e98ac88aa))
+
+  - Unified conditional logic in `ci.yml` for `build-and-test-reduced` and `build-and-test-full` jobs.
+  - Removed matrix strategy and hardcoded Node.js version to `20` in `build-and-test-reduced`.
+  - Adjusted artifact naming to reflect the single Node.js version.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.1 (2025-10-06)
 
 
