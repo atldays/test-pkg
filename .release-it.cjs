@@ -201,6 +201,7 @@ module.exports = () => {
                     footerPartial: `{{#if @root.contributors.length}}\n### 🙌 Contributors\n\n{{#each @root.contributors}}- {{#if url}}{{#if name}}[{{name}}]({{url}}){{#if login}} (@{{login}}){{/if}}{{else}}[@{{login}}]({{url}}){{/if}}{{else}}{{#if email}}{{#if name}}[{{name}}]({{email}}){{else}}{{email}}{{/if}}{{else}}{{name}}{{/if}}{{/if}} — {{count}} commits\n{{/each}}{{/if}}`,
                     mainTemplate:
                         "{{> header}}\n" +
+                        "{{#if noteGroups}}\n### 💥 Breaking Changes\n\n{{#each noteGroups}}{{#each notes}}* {{{text}}}\n\n{{/each}}{{/each}}{{/if}}" +
                         "{{#each commitGroups}}\n### {{title}}\n\n{{#each commits}}{{> commit root=@root}}\n{{/each}}\n\n{{/each}}" +
                         "{{#unless commitGroups}}\n{{#each commits}}{{> commit root=@root}}\n{{/each}}{{/unless}}\n\n" +
                         "{{> footer}}",
@@ -211,6 +212,12 @@ module.exports = () => {
                     commitsSort: ["scope", "subject"],
                     transform: commit => {
                         const nextCommit = {...commit};
+
+                        // If header had a '!' (captured into `breaking` by parser), ensure we surface a BREAKING note
+                        if (nextCommit.breaking && (!nextCommit.notes || nextCommit.notes.length === 0)) {
+                            const text = nextCommit.subject || nextCommit.header;
+                            nextCommit.notes = [{ title: "BREAKING CHANGE", text }];
+                        }
 
                         // Normalize type: lowercase and drop trailing '!' so 'feat!' maps to 'feat'
                         const type = (nextCommit.type || "").toLowerCase().replace(/!+$/, "");
