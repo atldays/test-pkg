@@ -1,5 +1,21 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v1.7.3 (2025-10-06)
+
+### 🛠️ Refactoring
+
+* inline `getContributors` logic into `.release-it.cjs` for simplicity ([1513106](https://github.com/atldays/test-pkg/commit/15131066b7a9d8eb3d7cc4c11d7c51fe9e41f86f))
+
+  - Removed `scripts/git.cjs` and transferred `getContributors` logic directly into `.release-it.cjs`.
+  - Updated release footer template to conditionally include GitHub usernames.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v1.7.2 (2025-10-06)
 
 ### 🐛 Bug Fixed
