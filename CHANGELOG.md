@@ -1,5 +1,23 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.1 (2025-10-06)
+
+
+### 🤖 CI
+
+* add support for full OS and Node.js matrix in workflows ([46918a0](https://github.com/atldays/test-pkg/commit/46918a0563745f642faedb30f9fccb874a5e64df))
+
+  - Introduced `full` input to `ci.yml` for enabling a complete OS and Node.js version matrix.
+  - Split CI jobs into `build-and-test-reduced` and `build-and-test-full` for efficient execution.
+  - Updated `release.yml` to trigger the full matrix when invoking the CI workflow.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.0 (2025-10-06)
 
 ### 💥 Breaking Changes
