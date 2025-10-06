@@ -155,8 +155,6 @@ module.exports = () => {
                     contributors,
                 },
 
-                gitRawCommitsOpts: {noMerges: false},
-
                 recommendedBumpOpts: {
                     preset: "conventionalcommits",
                     whatBump: commits => {
