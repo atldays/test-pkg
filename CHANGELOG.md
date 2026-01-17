@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.9 (2026-01-17)
+
+
+### 🤖 CI
+
+* update workflows to use Node.js 22 and optimize configurations ([2f9aa80](https://github.com/atldays/test-pkg/commit/2f9aa8088b9fcea6f240d7674617000bb5bb3d9d))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.8 (2026-01-17)
 
 ## 🚀 Release `@young-money/test-pkg` v7.0.7 (2026-01-17)
