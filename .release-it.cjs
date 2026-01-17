@@ -50,8 +50,8 @@ function getContributors() {
 
             const count = Number(m?.[1] || 0);
 
-            const displayName = ((m?.[2] || "").trim()) || undefined;
-            const displayEmail = ((m?.[3] || "").trim()) || undefined;
+            const displayName = (m?.[2] || "").trim() || undefined;
+            const displayEmail = (m?.[3] || "").trim() || undefined;
 
             const lcName = (displayName || "").toLowerCase();
             const lcEmail = (displayEmail || "").toLowerCase();
@@ -64,7 +64,7 @@ function getContributors() {
             const gh = deriveGithubFromEmail(displayEmail);
             const loginKey = gh.login ? gh.login.toLowerCase() : null;
 
-            const key = loginKey ? `gh:${loginKey}` : (lcEmail ? `em:${lcEmail}` : `nm:${lcName}`);
+            const key = loginKey ? `gh:${loginKey}` : lcEmail ? `em:${lcEmail}` : `nm:${lcName}`;
 
             const existing = map.get(key);
 
@@ -216,7 +216,7 @@ module.exports = () => {
                         // If header had a '!' (captured into `breaking` by parser), ensure we surface a BREAKING note
                         if (nextCommit.breaking && (!nextCommit.notes || nextCommit.notes.length === 0)) {
                             const text = nextCommit.subject || nextCommit.header;
-                            nextCommit.notes = [{ title: "BREAKING CHANGE", text }];
+                            nextCommit.notes = [{title: "BREAKING CHANGE", text}];
                         }
 
                         // Normalize type: lowercase and drop trailing '!' so 'feat!' maps to 'feat'

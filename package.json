@@ -11,7 +11,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atldays/test-pkg"
+    "url": "git+https://github.com/atldays/test-pkg.git"
   },
   "homepage": "https://github.com/atldays/test-pkg",
   "bugs": {

@@ -62,14 +62,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Verify OIDC Setup
-        run: |
-          if [ -n "$ACTIONS_ID_TOKEN_REQUEST_URL" ]; then
-            echo "✅ OIDC Provider is available"
-          else
-            echo "❌ OIDC Provider is NOT available. Check permissions block."
-            exit 1
-          fi
 
       - name: Run release-it
         env:
@@ -101,10 +93,10 @@ jobs:
           NPM_TAG="${{ inputs.npm_tag || 'latest' }}"
           echo "Publishing version $(node -p "require('./package.json').version") with tag: $NPM_TAG"
           
-          # Гарантируем отсутствие старых конфигов, которые могут мешать OIDC
           rm -f .npmrc ~/.npmrc
           
-          # Выполняем публикацию. Флаг --provenance обязателен для Trusted Publishing
+          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > .npmrc
+          
           npm publish --provenance --access public --tag $NPM_TAG
 
       - name: Sync main → develop
