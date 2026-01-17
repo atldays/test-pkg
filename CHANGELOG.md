@@ -1,5 +1,86 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.9 (2026-01-17)
+
+
+### 🤖 CI
+
+* update workflows to use Node.js 22 and optimize configurations ([2f9aa80](https://github.com/atldays/test-pkg/commit/2f9aa8088b9fcea6f240d7674617000bb5bb3d9d))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
+## 🚀 Release `@young-money/test-pkg` v7.0.8 (2026-01-17)
+
+## 🚀 Release `@young-money/test-pkg` v7.0.7 (2026-01-17)
+
+
+### 🤖 CI
+
+* streamline npm registry configuration in release workflow ([9c4c10f](https://github.com/atldays/test-pkg/commit/9c4c10fd4af6c45445d0366eb6a535dc22f8dd0b))
+
+  - Added `publishConfig` to `package.json` to simplify publishing setup.
+  - Removed redundant npm registry configuration steps in `release.yml`.
+  - Refactored `npm publish` command for clarity and reduced complexity.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
+## 🚀 Release `@young-money/test-pkg` v7.0.6 (2026-01-17)
+
+
+### 🤖 CI
+
+* refine release workflow and code formatting ([d4440e4](https://github.com/atldays/test-pkg/commit/d4440e45580fa0f22e8d6458680cf7300333fbbf))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
+## 🚀 Release `@young-money/test-pkg` v7.0.5 (2026-01-17)
+
+
+### 🤖 CI
+
+* enhance release workflow with OIDC verification and manual npm publish ([aec5846](https://github.com/atldays/test-pkg/commit/aec5846c97dcf7b3f728fdf441b575fa8641b993))
+
+  - Added a step to verify OIDC setup in `release.yml` for trusted publishing.
+  - Introduced a manual `npm publish` step with provenance support and tag specification.
+  - Disabled `npm.publish` in `.release-it.cjs` to delegate publishing to the CI process.
+
+* remove unnecessary npm auth configuration in release workflow ([f7efab9](https://github.com/atldays/test-pkg/commit/f7efab961cdd653d288a7231f5fac8f70fd413ce))
+
+  - Removed redundant `registry-url` and `always-auth` configuration from the Node.js setup step.
+  - Dropped unused `NPM_TOKEN` and `NODE_AUTH_TOKEN` secrets to simplify the workflow.
+  - Enabled `skipChecks` in `.release-it.cjs` to bypass npm pre-publish verification.
+
+* update release workflow for npm registry and release-it integration ([aaab501](https://github.com/atldays/test-pkg/commit/aaab50165c2e375ed38e47eb83aac8eec4deb931))
+
+  - Added permissions for `contents` and `id-token` in the release workflow.
+  - Configured npm registry setup step in `release.yml`.
+  - Replaced `npm run release` with `npx release-it` for consistency.
+  - Updated `.release-it.cjs` to specify registry URL in `publishArgs`.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 6 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.4 (2025-10-06)
 
 
