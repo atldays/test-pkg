@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.10 (2026-01-17)
+
+
+### 🤖 CI
+
+* enable automatic npm publishing in release workflow ([eb310b9](https://github.com/atldays/test-pkg/commit/eb310b903c0302f8edbe10a90c6104db9db19e10))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.9 (2026-01-17)
 
 
