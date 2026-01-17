@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.6 (2026-01-17)
+
+
+### 🤖 CI
+
+* refine release workflow and code formatting ([d4440e4](https://github.com/atldays/test-pkg/commit/d4440e45580fa0f22e8d6458680cf7300333fbbf))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.5 (2026-01-17)
 
 
