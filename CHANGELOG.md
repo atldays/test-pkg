@@ -1,5 +1,7 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.8 (2026-01-17)
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.7 (2026-01-17)
 
 
