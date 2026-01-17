@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.11 (2026-01-17)
+
+
+### 🤖 CI
+
+* simplify npm publish configuration in release-it ([a51218f](https://github.com/atldays/test-pkg/commit/a51218f4045b38f95d3fc6314444a4898008d389))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.10 (2026-01-17)
 
 
