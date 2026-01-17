@@ -13,6 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/atldays/test-pkg.git"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
   "homepage": "https://github.com/atldays/test-pkg",
   "bugs": {
     "url": "https://github.com/atldays/test-pkg/issues"
