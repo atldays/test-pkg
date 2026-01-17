@@ -91,12 +91,6 @@ jobs:
 
           npx release-it --ci $PREID_ARG $NPM_TAG_ARG $VERSION_ARG
 
-      - name: Publish to NPM
-        run: |
-          NPM_TAG="${{ inputs.npm_tag || 'latest' }}"
-          rm -f .npmrc ~/.npmrc
-          npm publish --tag $NPM_TAG --provenance --access public --registry https://registry.npmjs.org/
-
       - name: Sync main → develop
         uses: devmasx/merge-branch@v1.4.0
         with:
