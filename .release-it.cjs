@@ -137,7 +137,7 @@ module.exports = () => {
             publish: true,
             skipChecks: true,
             versionArgs: ["--no-git-tag-version"],
-            publishArgs: ["--provenance", "--access", "public"],
+            publishArgs: ["--provenance", "--access", "public", "--registry", "https://registry.npmjs.org/"],
         },
 
         plugins: {
