@@ -134,9 +134,10 @@ module.exports = () => {
         },
 
         npm: {
-            publish: false, // Отключаем, чтобы опубликовать вручную в основном процессе CI
+            publish: true,
             skipChecks: true,
             versionArgs: ["--no-git-tag-version"],
+            publishArgs: ["--provenance", "--access", "public", "--registry", "https://registry.npmjs.org/"],
         },
 
         plugins: {
