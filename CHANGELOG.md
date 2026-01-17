@@ -1,5 +1,23 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.0.7 (2026-01-17)
+
+
+### 🤖 CI
+
+* streamline npm registry configuration in release workflow ([9c4c10f](https://github.com/atldays/test-pkg/commit/9c4c10fd4af6c45445d0366eb6a535dc22f8dd0b))
+
+  - Added `publishConfig` to `package.json` to simplify publishing setup.
+  - Removed redundant npm registry configuration steps in `release.yml`.
+  - Refactored `npm publish` command for clarity and reduced complexity.
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.6 (2026-01-17)
 
 
