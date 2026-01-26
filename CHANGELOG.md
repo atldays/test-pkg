@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.1.0 (2026-01-26)
+
+
+### ✨ Features
+
+* add power function with tests ([67bda46](https://github.com/atldays/test-pkg/commit/67bda461276b12cb6ba3bd53b1daec0f1c85b989))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.0.11 (2026-01-17)
 
 
