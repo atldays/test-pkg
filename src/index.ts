@@ -69,3 +69,16 @@ export function sqrt(x: number): number {
     }
     return Math.sqrt(x);
 }
+
+/**
+ * Calculates the power of a base to an exponent.
+ * @param base - The base number
+ * @param exponent - The exponent number
+ * @returns The result of base raised to the power of exponent
+ */
+export function power(base: number, exponent: number): number {
+    if (typeof base !== "number" || typeof exponent !== "number") {
+        throw new TypeError("power(base, exponent) expects both arguments to be numbers");
+    }
+    return base ** exponent;
+}
