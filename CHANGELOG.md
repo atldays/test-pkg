@@ -1,5 +1,20 @@
 # Changelog
 
+## 🚀 Release `@young-money/test-pkg` v7.1.1 (2026-01-26)
+
+
+### 🤖 CI
+
+* pin npm version and remove redundant publish config ([495289c](https://github.com/atldays/test-pkg/commit/495289cf8dbc3a1d417718fa69834c2c08ae3fca))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — 2 commits
+
 ## 🚀 Release `@young-money/test-pkg` v7.1.0 (2026-01-26)
 
 
